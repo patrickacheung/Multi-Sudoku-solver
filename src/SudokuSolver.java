@@ -2,7 +2,7 @@
  * A standard sudoku solver using recursive backtracking
  *
  * @author Patrick Cheung
- * @version 1.1
+ * @version 2.0
  * Created by patch on 2015-12-26.
  */
 public class SudokuSolver {

@@ -15,11 +15,12 @@ public class SudokuProgram {
                         {0, 5, 0, 0, 9, 0, 6, 0, 0},
                         {1, 3, 0, 0, 0, 0, 2, 5, 0},
                         {0, 0, 0, 0, 0, 0, 0, 7, 4},
-                        {0, 0, 5, 2, 0, 6, 3, 0, 0}};
+                        {0, 0, 5, 2, 0, 6, 3, 0, 0}}; // this row's 6 changed to 3 works... need to verify one last time?
 
         SudokuSolver solve = new SudokuSolver();
+
         if(solve.solveSudoku(grid))
-            solve.printSolution(grid);
+            solve.printSolution();
         else
             System.out.println("No Solution Exists.");
     }// end main
