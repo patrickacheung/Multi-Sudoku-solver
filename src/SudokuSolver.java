@@ -96,6 +96,7 @@ public class SudokuSolver {
             for (col.colIndex = 0; col.colIndex < N; ++col.colIndex)
                 if (grid[row.rowIndex][col.colIndex] == E)
                     return true;
+        return false;
     }// end findEmptyCell
 
     /**
@@ -128,4 +129,26 @@ public class SudokuSolver {
         }
         return false; //triggers backtracking (try next possible digit that would be valid)
     }// end solveSudoku
+
+    /**
+     * Function for printing grid
+     * @param grid - array to be printed
+     */
+    private void printSolution(int[][] grid){
+        for(int i = 0; i < N; ++i){
+            for(int j = 0; j < N; ++j) {
+                System.out.print(grid[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }// end printSolution
+
+    //private inner classes
+    private class Row {
+        public int rowIndex;
+    }
+
+    private class Col {
+        public int colIndex;
+    }
 }// end SudokuSolver
