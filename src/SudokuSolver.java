@@ -8,6 +8,7 @@
 public class SudokuSolver {
     private int N; //standard sudoku grid of size NxN
     private int E; //empty cell
+    private int[][] sudokuGrid;
 
     //constructor
     public SudokuSolver(){
@@ -107,11 +108,12 @@ public class SudokuSolver {
      * @return true if puzzle is solvable and false if it is not
      */
     public boolean solveSudoku(int[][] grid){
+        sudokuGrid = grid.clone();
         Row r = new Row();
         Col c = new Col();
 
         //no empty cells mean the puzzle is already solved
-        if(!findEmptyCell(grid,r, c))
+        if(!findEmptyCell(sudokuGrid,r, c))
             return true; //solved
 
         //cycle through possible digits
@@ -120,11 +122,11 @@ public class SudokuSolver {
                 grid[r.rowIndex][c.colIndex] = tryNum;
 
                 //if current tryNum works, try to recursively fill the rest
-                if(solveSudoku(grid))
+                if(solveSudoku(sudokuGrid))
                     return true;
 
                 //if it fails, rollback and set all previous filled to empty
-                grid[r.rowIndex][c.colIndex] = E;
+                sudokuGrid[r.rowIndex][c.colIndex] = E;
             }
         }
         return false; //triggers backtracking (try next possible digit that would be valid)
@@ -132,12 +134,11 @@ public class SudokuSolver {
 
     /**
      * Function for printing grid
-     * @param grid - array to be printed
      */
-    public void printSolution(int[][] grid){
+    public void printSolution(){
         for(int i = 0; i < N; ++i){
             for(int j = 0; j < N; ++j) {
-                System.out.print(grid[i][j] + " ");
+                System.out.print(sudokuGrid[i][j] + " ");
             }
             System.out.println();
         }
