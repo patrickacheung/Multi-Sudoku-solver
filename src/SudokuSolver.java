@@ -106,7 +106,7 @@ public class SudokuSolver {
      * @param grid - the array to be solved
      * @return true if puzzle is solvable and false if it is not
      */
-    private boolean solveSudoku(int[][] grid){
+    public boolean solveSudoku(int[][] grid){
         Row r = new Row();
         Col c = new Col();
 
@@ -134,7 +134,7 @@ public class SudokuSolver {
      * Function for printing grid
      * @param grid - array to be printed
      */
-    private void printSolution(int[][] grid){
+    public void printSolution(int[][] grid){
         for(int i = 0; i < N; ++i){
             for(int j = 0; j < N; ++j) {
                 System.out.print(grid[i][j] + " ");
@@ -144,11 +144,17 @@ public class SudokuSolver {
     }// end printSolution
 
     //private inner classes
+    /**
+     * Row of sudoku grid for the sake of encapsulation
+     */
     private class Row {
         public int rowIndex;
-    }
+    }// end Row
 
+    /**
+     * Col of sudoku grid for the sake of encapsulation
+     */
     private class Col {
         public int colIndex;
-    }
+    }// end Col
 }// end SudokuSolver
