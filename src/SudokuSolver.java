@@ -105,7 +105,7 @@ public class SudokuSolver {
      * @param grid - the array to be solved
      * @return true if puzzle is solvable and false if it is not
      */
-    public boolean solveSudoku(int[][] grid){
+    public boolean solve(int[][] grid){
         sudokuGrid = grid.clone();
         Row r = new Row();
         Col c = new Col();
@@ -120,7 +120,7 @@ public class SudokuSolver {
                 grid[r.rowIndex][c.colIndex] = tryNum;
 
                 //if current tryNum works, try to recursively fill the rest
-                if(solveSudoku(sudokuGrid))
+                if(solve(sudokuGrid))
                     return true;
 
                 //if it fails, rollback and set all previous filled to empty
@@ -128,7 +128,7 @@ public class SudokuSolver {
             }
         }
         return false; //triggers backtracking (try next possible digit that would be valid)
-    }// end solveSudoku
+    }// end solve
 
     /**
      * Function for printing grid

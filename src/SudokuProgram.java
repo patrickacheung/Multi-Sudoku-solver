@@ -17,10 +17,10 @@ public class SudokuProgram {
                         {0, 0, 8, 5, 0, 0, 0, 1, 0},
                         {0, 9, 0, 0, 0, 0, 4, 0, 0}};
 
-        SudokuSolver solve = new SudokuSolver();
+        SudokuSolver solver = new SudokuSolver();
 
-        if(solve.solveSudoku(grid))
-            solve.printSolution();
+        if(solver.solve(grid))
+            solver.printSolution();
         else
             System.out.println("No Solution Exists.");
     }// end main
