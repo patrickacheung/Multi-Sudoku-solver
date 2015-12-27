@@ -2,7 +2,7 @@
  * A standard sudoku solver using recursive backtracking
  *
  * @author Patrick Cheung
- * @version 2.0
+ * @version 2.3
  * Created by patch on 2015-12-26.
  */
 public class SudokuSolver {
@@ -25,16 +25,14 @@ public class SudokuSolver {
      * @return true if number doesn't appear twice in its 3x3 subgrid and false if it does
      */
     private boolean checkSubgrid(int[][] grid, int num, int row, int col){
-        //mod 3 to determine the (0,0) coordinate of the subgrid and add 3 to both row and col
-        //to find the limit of the subgrid
-        int range = 2;
+        //mod 3 to determine the (0,0) coordinate of the subgrid
         row = row - (row % 3);
         col = col - (col % 3);
 
         //iterate and check entire subgrid for duplicate digit
-        for(int i = row; i < (row + range); ++i)
-            for(int j = col; j < (col + range); ++j)
-                if(grid[i][j] == num)
+        for(int i = 0; i < 3; ++i)
+            for(int j = 0; j < 3; ++j)
+                if(grid[i + row][j + col] == num)
                     return false;
         return true;
     }// end checkSubgrid
