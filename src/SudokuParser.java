@@ -5,16 +5,18 @@
  * Created by patch on 2015-12-31.
  */
 import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class SudokuParser {
     private ArrayList<int[][]> sudokuList;
-    private BufferedReader in;
+    private String fileName;
 
     //constructor
     public SudokuParser(String fileName){
         sudokuList = null;
-        in = null;
+        this.fileName = fileName;
         parse();
     }
 
@@ -23,9 +25,11 @@ public class SudokuParser {
      * @return a list of puzzles
      */
     private ArrayList<int[][]> parse(){
-        try{
-
+        try(BufferedReader in = new BufferedReader(new FileReader(fileName))){
+            String s;
+        } catch(IOException e){
+            e.printStackTrace();
         }
         return sudokuList;
-    }
+    }//end parse
 }// end SudokuParser
