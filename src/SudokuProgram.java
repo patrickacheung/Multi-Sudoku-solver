@@ -13,9 +13,12 @@ public class SudokuProgram {
         //do i need a check?
 
         for(int[][] i: test){
-            for(int x = 0; x < 9; ++x)
-                for(int y = 0; y< 9; ++y)
-                    System.out.println(i[x][y]);
+            for(int x = 0; x < 9; ++x){
+                for (int y = 0; y < 9; ++y) {
+                    System.out.print(i[x][y]);
+                }
+                System.out.println();
+            }
         }
     }// end main
 }// end SudokuProgram
