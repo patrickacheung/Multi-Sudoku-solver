@@ -17,7 +17,21 @@ public class SudokuParser {
     public SudokuParser(String fileName){
         sudokuList = null;
         this.fileName = fileName;
-        parse();
+        //parse();
+        test();
+    }
+
+    private void test(){
+        int[][] grid = {{8, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 3, 6, 0, 0, 0, 0, 0},
+                {0, 7, 0, 0, 9, 0, 2, 0, 0},
+                {0, 5, 0, 0, 0, 7, 0, 0, 0},
+                {0, 0, 0, 0, 4, 5, 7, 0, 0},
+                {0, 0, 0, 1, 0, 0, 0, 3, 0},
+                {0, 0, 1, 0, 0, 0, 0, 6, 8},
+                {0, 0, 8, 5, 0, 0, 0, 1, 0},
+                {0, 9, 0, 0, 0, 0, 4, 0, 0}};
+        sudokuList.add(grid); //cannot add to null array right?
     }
 
     /**
@@ -36,6 +50,6 @@ public class SudokuParser {
      *
      */
     public ArrayList<int[][]> get(){
-        return sudokuList;
+        return (ArrayList<int[][]>)sudokuList.clone();
     }//end get
 }// end SudokuParser

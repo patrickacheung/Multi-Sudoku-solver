@@ -39,6 +39,6 @@ public class Input<E> {
      * @return
      */
     public E get(){
-        return (E)sudokuList;
+        return (E)sudokuList.clone();
     }//end get
 }// end Input
