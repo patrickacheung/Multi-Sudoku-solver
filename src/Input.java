@@ -13,11 +13,11 @@ public class Input<E> {
 
     //constructor
     public Input(){
-        sudokuList = parser(FNAME);
+        sudokuList = new parser(FNAME);
     }
 
     public Input(String fileName){
-        sudokuList = parser(fileName);
+        sudokuList = new parser(fileName);
     }
 
     /**

@@ -24,12 +24,18 @@ public class SudokuParser {
      * Parses text file and returns a list of puzzles
      * @return a list of puzzles
      */
-    private ArrayList<int[][]> parse(){
+    private void parse(){
         try(BufferedReader in = new BufferedReader(new FileReader(fileName))){
             String s;
         } catch(IOException e){
             e.printStackTrace();
         }
-        return sudokuList;
     }//end parse
+
+    /**
+     *
+     */
+    public ArrayList<int[][]> get(){
+        return sudokuList;
+    }
 }// end SudokuParser
