@@ -20,7 +20,7 @@ public class SudokuSolver {
      * @param grid - sudoku array to be evaluated
      * @param num - number to be inserted and evaluated
      * @param row - row where number will be inserted
-     * @param col - col where number will be iserted
+     * @param col - col where number will be inserted
      * @return true if number doesn't appear twice in its 3x3 subgrid and false if it does
      */
     private boolean checkSubgrid(int[][] grid, int num, int row, int col){
