@@ -20,6 +20,10 @@ public class Input<E> {
         sudokuList = parser(fileName);
     }
 
+    /**
+     *
+     * @return
+     */
     public E get(){
         return (E)sudokuList;
     }
