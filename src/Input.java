@@ -8,17 +8,31 @@ import java.util.ArrayList;
 
 public class Input<E> {
     private final String FNAME = "puzzles.txt";
+    private String fileName;
     private ArrayList<E> sudokuList;
     private SudokuParser parser;
 
     //constructor
     public Input(){
-        sudokuList = (ArrayList<E>)new SudokuParser(FNAME).get();
+        sudokuList = null;
+        parser = null;
+        fileName = FNAME;
+        run();
     }
 
     public Input(String fileName){
-        sudokuList = (ArrayList<E>)new SudokuParser(fileName).get();
+        sudokuList = null;
+        parser = null;
+        this.fileName = fileName;
+        run();
     }
+
+    /**
+     *
+     */
+    private void run(){
+        sudokuList = (ArrayList<E>)new SudokuParser(fileName).get();
+    }//end run
 
     /**
      *
@@ -26,5 +40,5 @@ public class Input<E> {
      */
     public E get(){
         return (E)sudokuList;
-    }
+    }//end get
 }// end Input
