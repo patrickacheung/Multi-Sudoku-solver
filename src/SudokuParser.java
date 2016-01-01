@@ -1,5 +1,5 @@
 /**
- *
+ * Parses Sudoku puzzles from a text file and returns a list of Sudoku puzzles to be solved
  * @author Patrick Cheung
  * @version 1.0
  * Created by patch on 2015-12-31.
@@ -18,7 +18,14 @@ public class SudokuParser {
         parse();
     }
 
-    private void parse(){
+    /**
+     *
+     * @return
+     */
+    private ArrayList<int[][]> parse(){
+        try{
 
+        }
+        return sudokuList;
     }
 }// end SudokuParser
