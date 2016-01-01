@@ -19,8 +19,8 @@ public class SudokuParser {
     }
 
     /**
-     *
-     * @return
+     * Parses text file and returns a list of puzzles
+     * @return a list of puzzles
      */
     private ArrayList<int[][]> parse(){
         try{
