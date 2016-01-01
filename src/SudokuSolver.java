@@ -1,6 +1,5 @@
 /**
  * A standard sudoku solver using recursive backtracking
- *
  * @author Patrick Cheung
  * @version 2.3
  * Created by patch on 2015-12-26.
