@@ -22,6 +22,7 @@ public class SudokuParser {
     }
 
     private void test(){
+        sudokuList = new ArrayList<int[][]>();
         int[][] grid = {{8, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 3, 6, 0, 0, 0, 0, 0},
                 {0, 7, 0, 0, 9, 0, 2, 0, 0},

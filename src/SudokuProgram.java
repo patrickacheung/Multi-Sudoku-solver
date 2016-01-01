@@ -12,10 +12,10 @@ public class SudokuProgram {
         ArrayList<int[][]> test = (ArrayList<int[][]>)input.get();
         //do i need a check?
 
-        /*for(int[][] i: test){
+        for(int[][] i: test){
             for(int x = 0; x < 9; ++x)
                 for(int y = 0; y< 9; ++y)
                     System.out.println(i[x][y]);
-        }*/
+        }
     }// end main
 }// end SudokuProgram
