@@ -1,5 +1,5 @@
 /**
- *
+ * Passes text file to parser and returns an arraylist of objects
  * @author Patrick Cheung
  * @version 1.0
  * Created by patch on 2015-12-27.
@@ -7,38 +7,38 @@
 import java.util.ArrayList;
 
 public class Input<E> {
-    private final String FNAME = "puzzles.txt";
     private String fileName;
-    private ArrayList<E> sudokuList;
+    private ArrayList<E> list;
     private SudokuParser parser;
 
     //constructor
     public Input(){
-        sudokuList = null;
+        final String FNAME = "puzzles.txt";
+        list = null;
         parser = null;
         fileName = FNAME;
         run();
     }
 
     public Input(String fileName){
-        sudokuList = null;
+        list = null;
         parser = null;
         this.fileName = fileName;
         run();
     }
 
     /**
-     *
+     * Parses text file and returns an arraylist of objects
      */
     private void run(){
-        sudokuList = (ArrayList<E>)new SudokuParser(fileName).get();
+        list = (ArrayList<E>)new SudokuParser(fileName).get();
     }//end run
 
     /**
-     *
-     * @return
+     * Returns an arraylist of objects
+     * @return arraylist of objects
      */
     public E get(){
-        return (E)sudokuList.clone();
+        return (E)list;
     }//end get
 }// end Input
