@@ -31,6 +31,7 @@ public class Input<E> {
      * Parses text file and returns an arraylist of objects
      */
     private void run(){
+        //need to figure this out - there is potential error due to unchecked casting
         list = (ArrayList<E>)new SudokuParser(fileName).get();
     }//end run
 
@@ -38,7 +39,7 @@ public class Input<E> {
      * Returns an arraylist of objects
      * @return arraylist of objects
      */
-    public E get(){
-        return (E)list;
+    public ArrayList<E> get(){
+        return list;
     }//end get
 }// end Input
