@@ -22,7 +22,6 @@ public class SudokuParser {
 
     /**
      * Parses text file and returns a list of puzzles
-     * @return a list of puzzles
      */
     private void parse(){
         try(BufferedReader in = new BufferedReader(new FileReader(fileName))){
