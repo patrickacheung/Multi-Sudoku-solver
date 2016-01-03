@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class SudokuProgram {
     public static void main(String[] args){
         Input input = new Input();
+        //there is an unchecked cast problem
         ArrayList<int[][]> test = (ArrayList<int[][]>)input.get();
         //do i need a check?
 
