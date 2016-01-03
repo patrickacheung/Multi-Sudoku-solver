@@ -38,7 +38,6 @@ public class SudokuParser {
      * @return an arraylist of sudoku puzzles
      */
     public ArrayList<int[][]> get(){
-        //unchecked casting problem
-        return (ArrayList<int[][]>)sudokuList;
+        return sudokuList;
     }//end get
 }// end SudokuParser
