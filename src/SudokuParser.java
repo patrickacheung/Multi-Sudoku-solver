@@ -10,10 +10,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class SudokuParser {
-    private ArrayList<int[][]> sudokuList;
-    private String fileName;
+    private final ArrayList<int[][]> sudokuList;
+    private final String fileName;
 
     //constructor
+    public SudokuParser(){
+        sudokuList = null;
+        fileName = "puzzles.txt";
+        parse();
+    }
+
     public SudokuParser(String fileName){
         sudokuList = null;
         this.fileName = fileName;
@@ -34,7 +40,7 @@ public class SudokuParser {
 
     /**
      * Retruns an arraylist of sudoku puzzles
-     * @return an arraylist of sudoku puzzles
+     * @return an arraylist of sudoku puzzles if parse was successful, else returns a null arraylist
      */
     public ArrayList<int[][]> get(){
         return sudokuList;
