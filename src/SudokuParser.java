@@ -22,12 +22,6 @@ class SudokuParser {
         fileName = "puzzles.txt";
     }
 
-    public SudokuParser(String fileName){
-        sudokuList = null;
-        failToParse = null;
-        this.fileName = fileName;
-    }
-
     /**
      * Parses text file and returns and fills arraylist of list of puzzles
      * @return true if parse was successful and false if it was not
