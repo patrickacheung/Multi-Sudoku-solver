@@ -54,11 +54,11 @@ public class SudokuParser {
             }
             //if it cant successfully parse then failToParse = SOMETHING and return false
             //failToParse = "ERROR";
-            return false;
+            return true;
         } catch(IOException e){
             e.printStackTrace();
         }
-        return true;
+        return false;
     }//end parse
 
     /**
@@ -88,7 +88,7 @@ public class SudokuParser {
     }//end push
 
     /**
-     * Retruns an arraylist of sudoku puzzles
+     * Returns an arraylist of sudoku puzzles
      * @return an arraylist of sudoku puzzles if parse was successful, else returns a null arraylist
      */
     public ArrayList<int[][]> get(){

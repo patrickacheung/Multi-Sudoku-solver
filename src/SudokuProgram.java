@@ -26,6 +26,7 @@ public class SudokuProgram {
                             }
                             System.out.println();
                         }
+                        System.out.println();
                     }
                     else
                         System.out.println("Cannot Be Solved.");
