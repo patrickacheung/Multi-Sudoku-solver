@@ -17,25 +17,26 @@ public class SudokuParser {
     public SudokuParser(){
         sudokuList = null;
         fileName = "puzzles.txt";
-        parse();
     }
 
     public SudokuParser(String fileName){
         sudokuList = null;
         this.fileName = fileName;
-        parse();
     }
 
     /**
-     * Parses text file and returns a list of puzzles
+     *
+     * @return
      */
-    private void parse(){
+    public boolean parse(){
         try(BufferedReader in = new BufferedReader(new FileReader(fileName))){
             String s;
             //Pending
+            return true;
         } catch(IOException e){
             e.printStackTrace();
         }
+        return false;
     }//end parse
 
     /**

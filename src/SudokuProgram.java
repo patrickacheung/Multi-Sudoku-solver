@@ -1,25 +1,25 @@
-import java.util.ArrayList;
-
 /**
  * Main program that runs the input, output, and sudoku solving
  * @author Patrick Cheung
  * @version 1.0
  * Created by patch on 2015-12-26.
  */
+import java.util.ArrayList;
+
 public class SudokuProgram {
     public static void main(String[] args){
-        Input input = new Input();
-        //there is an unchecked cast problem
-        ArrayList<int[][]> test = (ArrayList<int[][]>)input.get();
-        //do i need a check?
+        SudokuParser parser = new SudokuParser();
 
-        for(int[][] i: test){
-            for(int x = 0; x < 9; ++x){
-                for (int y = 0; y < 9; ++y) {
-                    System.out.print(i[x][y]);
-                }
-                System.out.println();
+        if(parser.parse()){
+            ArrayList<int[][]> puzzleList = parser.get();
+            if(puzzleList == null)
+                System.out.println("Error with input file.");
+            else{
+                Output out = new Output(puzzleList);
+                System.out.println("Solutions outputted in to \"solutions.txt\"");
             }
         }
+        else
+            System.out.println("Missing input file.");
     }// end main
 }// end SudokuProgram
