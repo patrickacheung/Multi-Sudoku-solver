@@ -23,7 +23,7 @@ class SudokuParser {
     }
 
     /**
-     * Parses text file and returns and fills arraylist of list of puzzles
+     * Parses text file and converts text into sudoku puzzles
      * @return true if parse was successful and false if it was not
      */
     public boolean parse(){
@@ -57,7 +57,8 @@ class SudokuParser {
     }//end parse
 
     /**
-     * Converts string to int and pushes digits into puzzle list
+     * Converts string to int and rearranges to sudoku puzzle format
+     * Formatted puzzle is pushed into puzzle list
      * @param s text to be pushed into puzzle list
      */
     private void push(String s){
