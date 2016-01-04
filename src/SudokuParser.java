@@ -35,7 +35,7 @@ public class SudokuParser {
         try(BufferedReader in = new BufferedReader(new FileReader(fileName))){
             String s;
             //Pending
-            //if it cant successfully parse then failToParse = SOMETHING
+            //if it cant successfully parse then failToParse = SOMETHING and return false
             return true;
         } catch(IOException e){
             e.printStackTrace();
