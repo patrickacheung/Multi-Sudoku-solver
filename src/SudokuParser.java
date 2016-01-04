@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class SudokuParser {
     private final int sudokuSize = 9;
-    private final ArrayList<int[][]> sudokuList;
+    private ArrayList<int[][]> sudokuList;
     private final String fileName;
     private String failToParse;
 
@@ -35,6 +35,7 @@ public class SudokuParser {
     public boolean parse(){
         try(BufferedReader in = new BufferedReader(new FileReader(fileName))){
             int count = sudokuSize; // max row of column size of sudoku puzzle
+            sudokuList = new ArrayList<int[][]>();
             String rowString = "";
             String read;
 
@@ -46,7 +47,7 @@ public class SudokuParser {
                 }
                 else{
                     push(rowString);
-                    //reset and scan next row of sudoku puzzle
+                    //reset and scan next puzzle
                     rowString = "";
                     count = sudokuSize;
                 }
