@@ -1,7 +1,7 @@
 /**
  * Parses Sudoku puzzles from a text file and returns a list of Sudoku puzzles to be solved
  * @author Patrick Cheung
- * @version 1.1
+ * @version 1.1.2
  * Created by patch on 2015-12-31.
  */
 import java.io.BufferedReader;
@@ -75,7 +75,7 @@ public class SudokuParser {
             if((i % (sudokuSize + 1)) != 0) {
                 stringRow += s.charAt(i - 1);
             }
-            else{ //some out of bound issue here...
+            else{
                 //insert the 9 digits into a 2D 9x9 int array aka "the sudoku grid"
                 for (int k = 0; k < sudokuSize; ++k) {
                     temp[row][k] = Integer.parseInt(Character.toString(stringRow.charAt(k)));
