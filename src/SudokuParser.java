@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class SudokuParser {
+    private final int sudokuSize = 9;
     private final ArrayList<int[][]> sudokuList;
     private final String fileName;
     private String failToParse;
@@ -33,16 +34,38 @@ public class SudokuParser {
      */
     public boolean parse(){
         try(BufferedReader in = new BufferedReader(new FileReader(fileName))){
-            String s;
-            //Pending
+            int count = sudokuSize;
+            String temp = "";
+            String read;
+
+            while((read = in.readLine()) != null)
+            {
+                if(count != 0){
+                    temp += read;
+                    count--;
+                }
+                else{
+                    push(temp);
+                    temp = "";
+                    count = 9;
+                }
+            }
             //if it cant successfully parse then failToParse = SOMETHING and return false
             //failToParse = "ERROR";
-            return true;
+            return false;
         } catch(IOException e){
             e.printStackTrace();
         }
-        return false;
+        return true;
     }//end parse
+
+    /**
+     * Converts string to int and pushes digits into puzzle list
+     * @param s text to be pushed into puzzle list
+     */
+    private void push(String s){
+
+    }//end push
 
     /**
      * Retruns an arraylist of sudoku puzzles
