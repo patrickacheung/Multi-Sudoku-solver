@@ -36,6 +36,7 @@ public class SudokuParser {
             String s;
             //Pending
             //if it cant successfully parse then failToParse = SOMETHING and return false
+            //failToParse = "ERROR";
             return true;
         } catch(IOException e){
             e.printStackTrace();

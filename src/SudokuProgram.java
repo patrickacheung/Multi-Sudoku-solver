@@ -8,11 +8,12 @@ import java.util.ArrayList;
 
 public class SudokuProgram {
     public static void main(String[] args){
+        final String F = "ERROR";
         SudokuParser parser = new SudokuParser();
 
         if(parser.parse()){
             ArrayList<int[][]> puzzleList = parser.get();
-            if(puzzleList == null)
+            if(puzzleList == null && parser.fail() == F)
                 System.out.println("Error with input file.");
             else{
                 //Output out = new Output(puzzleList);
