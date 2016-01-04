@@ -1,7 +1,7 @@
 /**
  * Parses Sudoku puzzles from a text file and returns a list of Sudoku puzzles to be solved
  * @author Patrick Cheung
- * @version 1.1.2
+ * @version 1.1.1
  * Created by patch on 2015-12-31.
  */
 import java.io.BufferedReader;
@@ -9,10 +9,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class SudokuParser {
+class SudokuParser {
     private final int sudokuSize = 9;
-    private ArrayList<int[][]> sudokuList;
     private final String fileName;
+    private ArrayList<int[][]> sudokuList;
     private String failToParse;
 
     //constructor
@@ -41,6 +41,9 @@ public class SudokuParser {
 
             while((read = in.readLine()) != null)
             {
+                //if not digit or newline return false
+                //if it cant successfully parse then failToParse = SOMETHING and return false
+                //failToParse = "ERROR";
                 if(count != 0){
                     rowString += read; //add each character read to string
                     count--; //decrease count to scan through a single row of the puzzle
@@ -52,8 +55,6 @@ public class SudokuParser {
                     count = sudokuSize;
                 }
             }
-            //if it cant successfully parse then failToParse = SOMETHING and return false
-            //failToParse = "ERROR";
             return true;
         } catch(IOException e){
             e.printStackTrace();
@@ -72,12 +73,12 @@ public class SudokuParser {
         //iterate through the entire puzzle
         for(int i = 1, row = 0; i <= s.length(); ++i){
             //obtain 9 digits
-            if((i % (sudokuSize + 1)) != 0) {
+            if((i % (sudokuSize + 1)) != 0){
                 stringRow += s.charAt(i - 1);
             }
             else{
                 //insert the 9 digits into a 2D 9x9 int array aka "the sudoku grid"
-                for (int k = 0; k < sudokuSize; ++k) {
+                for (int k = 0; k < sudokuSize; ++k){
                     temp[row][k] = Integer.parseInt(Character.toString(stringRow.charAt(k)));
                 }
                 stringRow = ""; //reset the row

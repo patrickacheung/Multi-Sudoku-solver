@@ -6,7 +6,7 @@
  */
 import java.util.ArrayList;
 
-public class SudokuProgram {
+class SudokuProgram {
     public static void main(String[] args){
         final String F = "ERROR";
         SudokuParser parser = new SudokuParser();
@@ -31,7 +31,7 @@ public class SudokuProgram {
                     else
                         System.out.println("Cannot Be Solved.");
                 }
-                System.out.println("Solutions outputted in to \"solutions.txt\"");
+                System.out.println("Solutions outputted into \"solutions.txt\"");
             }
         }
         else

@@ -6,7 +6,7 @@
  */
 import java.util.ArrayList;
 
-public class Output {
+class Output {
     //constructor
     public Output(ArrayList<int[][]> sol){
 

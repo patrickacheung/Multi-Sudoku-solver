@@ -4,7 +4,7 @@
  * @version 2.3
  * Created by patch on 2015-12-26.
  */
-public class SudokuSolver {
+class SudokuSolver {
     private int N; //standard sudoku grid of size NxN
     private int E; //empty cell
     private int[][] sudokuGrid;
