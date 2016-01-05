@@ -28,8 +28,8 @@ class SudokuParser {
         try(BufferedReader in = new BufferedReader(new FileReader(fileName))){
             int count = sudokuSize; // max row of column size of sudoku puzzle
             sudokuList = new ArrayList<int[][]>();
-            String rowString = "";
-            String read;
+            String stringPuzzle = ""; //stores sudoku puzzle as one string
+            String read; //input from text file
 
             while((read = in.readLine()) != null)
             {
@@ -37,13 +37,13 @@ class SudokuParser {
                 //if it cant successfully parse then failToParse = SOMETHING and return false
                 //failToParse = "ERROR";
                 if(count != 0){
-                    rowString += read; //add each character read to string
+                    stringPuzzle += read; //add each character read to string
                     count--; //decrease count to scan through a single row of the puzzle
                 }
                 else{
-                    push(rowString);
+                    push(stringPuzzle);
                     //reset and scan next puzzle
-                    rowString = "";
+                    stringPuzzle = "";
                     count = sudokuSize;
                 }
             }
@@ -60,7 +60,7 @@ class SudokuParser {
      * @param s text to be pushed into puzzle list
      */
     private void push(String s){
-        int[][] temp = new int[sudokuSize][sudokuSize];
+        int[][] puzzle = new int[sudokuSize][sudokuSize];
         String stringRow = "";
 
         //iterate through the entire puzzle
@@ -72,13 +72,13 @@ class SudokuParser {
             else{
                 //insert the 9 digits into a 2D 9x9 int array aka "the sudoku grid"
                 for (int k = 0; k < sudokuSize; ++k){
-                    temp[row][k] = Integer.parseInt(Character.toString(stringRow.charAt(k)));
+                    puzzle[row][k] = Integer.parseInt(Character.toString(stringRow.charAt(k)));
                 }
                 stringRow = ""; //reset the row
                 ++row; //iterate to next row
             }
         }
-        sudokuList.add(temp);
+        sudokuList.add(puzzle);
     }//end push
 
     /**
