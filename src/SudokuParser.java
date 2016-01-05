@@ -13,12 +13,10 @@ class SudokuParser {
     private final int sudokuSize = 9;
     private final String fileName;
     private ArrayList<int[][]> sudokuList;
-    private String failToParse;
 
     //constructor
     public SudokuParser(){
         sudokuList = null;
-        failToParse = null;
         fileName = "puzzles.txt";
     }
 
@@ -51,7 +49,7 @@ class SudokuParser {
             }
             return true;
         } catch(IOException e){
-            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
         }
         return false;
     }//end parse
@@ -90,12 +88,4 @@ class SudokuParser {
     public ArrayList<int[][]> get(){
         return sudokuList;
     }//end get
-
-    /**
-     * Returns reason for parsing failure as a String
-     * @return string text of failure reason or a null string if parse was successful
-     */
-    public String fail(){
-        return failToParse;
-    }//end fail
 }// end SudokuParser

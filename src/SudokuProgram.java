@@ -13,28 +13,20 @@ class SudokuProgram {
 
         if(parser.parse()){
             ArrayList<int[][]> puzzleList = parser.get();
-            if(puzzleList == null && parser.fail() == F)
-                System.out.println("Error with input file.");
-            else{
-                //Output out = new Output(puzzleList);
-                //test case before output
-                for(int[][] sol: puzzleList){
-                    if(sol != null) {
-                        for (int i = 0; i < 9; ++i) {
-                            for (int j = 0; j < 9; ++j) {
-                                System.out.print(sol[i][j]);
-                            }
-                            System.out.println();
+            //Output out = new Output(puzzleList);
+            //test case before output
+            for(int[][] sol: puzzleList){
+                if(sol != null) {
+                    for (int i = 0; i < 9; ++i) {
+                        for (int j = 0; j < 9; ++j) {
+                            System.out.print(sol[i][j]);
                         }
                         System.out.println();
                     }
-                    else
-                        System.out.println("Cannot Be Solved.");
+                    System.out.println();
                 }
                 System.out.println("Solutions outputted into \"solutions.txt\"");
             }
         }
-        else
-            System.out.println("Missing input file.");
     }// end main
 }// end SudokuProgram
