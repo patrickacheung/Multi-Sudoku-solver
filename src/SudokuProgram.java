@@ -8,15 +8,15 @@ import java.util.ArrayList;
 
 class SudokuProgram {
     public static void main(String[] args){
-        final String F = "ERROR";
         SudokuParser parser = new SudokuParser();
+        parser.parse();
 
-        if(parser.parse()){
+        if(parser.get().size() > 0) {
             ArrayList<int[][]> puzzleList = parser.get();
             //Output out = new Output(puzzleList);
             //test case before output
-            for(int[][] sol: puzzleList){
-                if(sol != null) {
+            for (int[][] sol : puzzleList) {
+                if (sol != null) {
                     for (int i = 0; i < 9; ++i) {
                         for (int j = 0; j < 9; ++j) {
                             System.out.print(sol[i][j]);

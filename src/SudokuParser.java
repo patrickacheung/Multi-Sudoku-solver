@@ -1,15 +1,15 @@
 /**
  * Parses Sudoku puzzles from a text file and returns a list of Sudoku puzzles to be solved
  * @author Patrick Cheung
- * @version 1.1.2
+ * @version 1.2
  * Created by patch on 2015-12-31.
  */
+import org.apache.commons.lang3.math.NumberUtils;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.zip.DataFormatException;
-import org.apache.commons.lang3.math.NumberUtils;
 
 class SudokuParser {
     private final int sudokuSize = 9;
@@ -24,17 +24,18 @@ class SudokuParser {
 
     /**
      * Parses text file and converts text into sudoku puzzles
-     * @return true if parse was successful and false if it was not
      */
-    public boolean parse(){
+    public void parse(){
         try(BufferedReader in = new BufferedReader(new FileReader(fileName))){
             int count = sudokuSize; // max row of column size of sudoku puzzle
             sudokuList = new ArrayList<int[][]>();
             String stringPuzzle = ""; //stores sudoku puzzle as one string
             String read; //input from text file
+            int linesRead = 0;
 
             while((read = in.readLine()) != null)
             {
+                ++linesRead;
                 if(count != 0){
                     stringPuzzle += read; //add each character read to string
 
@@ -42,7 +43,7 @@ class SudokuParser {
                     if(!NumberUtils.isDigits(stringPuzzle))
                         throw new DataFormatException("Illegal characters in " + fileName);
 
-                    count--; //decrease count to scan through a single row of the puzzle
+                    --count; //decrease count to scan through a single row of the puzzle
                 }
                 else{
                     push(stringPuzzle);
@@ -51,11 +52,11 @@ class SudokuParser {
                     count = sudokuSize;
                 }
             }
-            return true;
+            if(linesRead == 0)
+                throw new DataFormatException(fileName + " is empty");
         } catch(IOException | DataFormatException e){
             System.out.println("Error: " + e.getMessage());
         }
-        return false;
     }//end parse
 
     /**
