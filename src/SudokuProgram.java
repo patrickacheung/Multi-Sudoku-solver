@@ -9,23 +9,11 @@ import java.util.ArrayList;
 class SudokuProgram {
     public static void main(String[] args){
         SudokuParser parser = new SudokuParser();
-        parser.parse();
 
-        if(parser.get().size() > 0) {
+        if(parser.parse()) {
             ArrayList<int[][]> puzzleList = parser.get();
-            //Output out = new Output(puzzleList);
-            //test case before output
-            for (int[][] sol : puzzleList) {
-                if (sol != null) {
-                    for (int i = 0; i < 9; ++i) {
-                        for (int j = 0; j < 9; ++j) {
-                            System.out.print(sol[i][j]);
-                        }
-                        System.out.println();
-                    }
-                    System.out.println();
-                }
-            }
+            Output out = new Output(puzzleList);
+            out.out();
             System.out.println("Solutions outputted into \"solutions.txt\"");
         }
     }// end main

@@ -1,7 +1,7 @@
 /**
  * Parses Sudoku puzzles from a text file and returns a list of Sudoku puzzles to be solved
  * @author Patrick Cheung
- * @version 1.2
+ * @version 1.3
  * Created by patch on 2015-12-31.
  */
 import org.apache.commons.lang3.math.NumberUtils;
@@ -24,8 +24,9 @@ class SudokuParser {
 
     /**
      * Parses text file and converts text into sudoku puzzles
+     * @return true if puzzles were parsed successfully
      */
-    public void parse(){
+    public boolean parse(){
         try(BufferedReader in = new BufferedReader(new FileReader(fileName))){
             int count = sudokuSize; // max row of column size of sudoku puzzle
             sudokuList = new ArrayList<int[][]>();
@@ -57,6 +58,7 @@ class SudokuParser {
         } catch(IOException | DataFormatException e){
             System.out.println("Error: " + e.getMessage());
         }
+        return true;
     }//end parse
 
     /**
