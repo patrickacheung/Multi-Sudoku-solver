@@ -1,7 +1,7 @@
 /**
  * Parses Sudoku puzzles from a text file and returns a list of Sudoku puzzles to be solved
  * @author Patrick Cheung
- * @version 1.1.1
+ * @version 1.1.2
  * Created by patch on 2015-12-31.
  */
 import java.io.BufferedReader;
@@ -9,7 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.zip.DataFormatException;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 
 class SudokuParser {
     private final int sudokuSize = 9;
@@ -35,12 +35,13 @@ class SudokuParser {
 
             while((read = in.readLine()) != null)
             {
-                //if not a digit or empty file throw exception
-                if(!StringUtils.isNumeric(read))
-                    throw new DataFormatException("Illegal characters in " + fileName);
-
                 if(count != 0){
                     stringPuzzle += read; //add each character read to string
+
+                    //if not a digit or empty file throw exception
+                    if(!NumberUtils.isDigits(stringPuzzle))
+                        throw new DataFormatException("Illegal characters in " + fileName);
+
                     count--; //decrease count to scan through a single row of the puzzle
                 }
                 else{

@@ -25,8 +25,8 @@ class SudokuProgram {
                     }
                     System.out.println();
                 }
-                System.out.println("Solutions outputted into \"solutions.txt\"");
             }
+            System.out.println("Solutions outputted into \"solutions.txt\"");
         }
     }// end main
 }// end SudokuProgram
