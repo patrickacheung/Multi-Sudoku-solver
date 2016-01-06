@@ -17,8 +17,21 @@ class SudokuProgram {
             //loop through each puzzle and solve
             for(int[][] puzzle: puzzleList){
                 SudokuSolver solver = new SudokuSolver();
-                solver.solve(puzzle);
-                solList.add(solver.get());
+                solList.add(solver.get(puzzle));
+            }
+
+            //test
+            for(int[][] sol: solList){
+                if(sol.length == 0)
+                    System.out.print("No Solution Exists.");
+                else {
+                    for (int i = 0; i < 9; ++i) {
+                        for (int j = 0; j < 9; ++j) {
+                            System.out.print(sol[i][j]);
+                        }
+                    }
+                }
+                System.out.println();
             }
 
             //Output out = new Output(solList);

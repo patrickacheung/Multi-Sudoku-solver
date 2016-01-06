@@ -1,7 +1,7 @@
 /**
  * A standard sudoku solver using recursive backtracking
  * @author Patrick Cheung
- * @version 2.4
+ * @version 2.5
  * Created by patch on 2015-12-26.
  */
 class SudokuSolver {
@@ -104,7 +104,7 @@ class SudokuSolver {
      * @param grid - the array to be solved
      * @return true if puzzle is solvable and false if it is not
      */
-    public boolean solve(int[][] grid){
+    private boolean solve(int[][] grid){
         sudokuGrid = grid.clone();
         Row r = new Row();
         Col c = new Col();
@@ -142,12 +142,15 @@ class SudokuSolver {
     }// end printSolution
 
     /**
-     *
-     * @return
+     * Returns the solution to the sudoku puzzle if solvable and an empty puzzle if unsolvable
+     * @param puzzle - puzzle to be solved
+     * @return solved sudoku grid
      */
-    public int[][] get(){
-
-    }//end get
+    public int[][] get(int[][] puzzle){
+        if(!solve(puzzle))
+            return new int[0][0];
+        return sudokuGrid;
+    }// end get
 
     //private inner classes
     /**

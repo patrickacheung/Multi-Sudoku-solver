@@ -28,5 +28,5 @@ class Output {
         } catch(IOException e){
             e.getMessage();
         }
-    }//end out
+    }// end out
 }// end Output
