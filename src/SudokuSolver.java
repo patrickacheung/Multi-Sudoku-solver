@@ -1,7 +1,7 @@
 /**
  * A standard sudoku solver using recursive backtracking
  * @author Patrick Cheung
- * @version 2.3
+ * @version 2.4
  * Created by patch on 2015-12-26.
  */
 class SudokuSolver {
@@ -140,6 +140,14 @@ class SudokuSolver {
             System.out.println();
         }
     }// end printSolution
+
+    /**
+     *
+     * @return
+     */
+    public int[][] get(){
+
+    }//end get
 
     //private inner classes
     /**
