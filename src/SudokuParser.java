@@ -8,6 +8,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.zip.DataFormatException;
+import org.apache.commons.lang3.StringUtils;
 
 class SudokuParser {
     private final int sudokuSize = 9;
@@ -33,9 +35,10 @@ class SudokuParser {
 
             while((read = in.readLine()) != null)
             {
-                //if not digit or newline return false
-                //if it cant successfully parse then failToParse = SOMETHING and return false
-                //failToParse = "ERROR";
+                //if not a digit or empty file throw exception
+                if(!StringUtils.isNumeric(read))
+                    throw new DataFormatException("Illegal characters in " + fileName);
+
                 if(count != 0){
                     stringPuzzle += read; //add each character read to string
                     count--; //decrease count to scan through a single row of the puzzle
@@ -48,7 +51,7 @@ class SudokuParser {
                 }
             }
             return true;
-        } catch(IOException e){
+        } catch(IOException | DataFormatException e){
             System.out.println("Error: " + e.getMessage());
         }
         return false;
