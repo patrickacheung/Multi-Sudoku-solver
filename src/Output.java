@@ -11,10 +11,12 @@ import java.util.ArrayList;
 
 class Output {
     private String fileName;
+    private ArrayList<int[][]> sol;
 
     //constructor
     public Output(ArrayList<int[][]> sol){
         fileName = "solutions.txt";
+        this.sol = sol;
     }
 
     /**

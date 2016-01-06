@@ -12,10 +12,17 @@ class SudokuProgram {
 
         if(parser.parse()) {
             ArrayList<int[][]> puzzleList = parser.get();
-            ArrayList<int[][]> solList;
-            //foreach loop then solve each puzzle with sudoku solver, then update p
-            Output out = new Output(solList);
-            out.out();
+            ArrayList<int[][]> solList = new ArrayList<>();
+
+            //loop through each puzzle and solve
+            for(int[][] puzzle: puzzleList){
+                SudokuSolver solver = new SudokuSolver();
+                solver.solve(puzzle);
+                solList.add(solver.get());
+            }
+
+            //Output out = new Output(solList);
+            //out.out();
             System.out.println("Solutions outputted into \"solutions.txt\"");
         }
     }// end main
