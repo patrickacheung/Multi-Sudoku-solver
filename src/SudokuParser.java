@@ -1,7 +1,7 @@
 /**
  * Parses Sudoku puzzles from a text file and returns a list of Sudoku puzzles to be solved
  * @author Patrick Cheung
- * @version 1.3.3
+ * @version 1.3.4
  * Created by patch on 2015-12-31.
  */
 import org.apache.commons.lang3.math.NumberUtils;
@@ -34,11 +34,16 @@ class SudokuParser {
             sudokuList = new ArrayList<int[][]>();
 
             while((read = in.readLine()) != null){
-                //exception for illegal characters: covers -> "" and non digits, but doesn't work for 2+ puzzles
-                if(!NumberUtils.isDigits(read) && (read.length() == 0 && linesRead % 9 != 0)) //&& works for 2, but not 3 puzzles...
+                linesRead++;
+                //special case where text file only has a new line
+                if(read.length() == 0 && linesRead == 1)
                     throw new DataFormatException("Illegal characters in " + fileName);
 
-                linesRead++;
+                //exception for illegal characters: covers -> "" and non digits allows parse when
+                //"" is occurred due to spacing between puzzles
+                if(!NumberUtils.isDigits(read) && linesRead == 1)
+                    throw new DataFormatException("Illegal characters in " + fileName);
+
                 stringPuzzles += read;
             }
             if(linesRead == 0)
