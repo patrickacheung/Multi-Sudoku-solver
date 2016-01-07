@@ -31,7 +31,7 @@ class SudokuParser {
             String stringPuzzles = ""; //stores all of the puzzles in text file
             String read; //input from text file
             int linesRead = 0;
-            sudokuList = new ArrayList<int[][]>();
+            sudokuList = new ArrayList<>();
 
             while((read = in.readLine()) != null){
                 linesRead++;
@@ -44,6 +44,7 @@ class SudokuParser {
                 if(!NumberUtils.isDigits(read) && linesRead == 1)
                     throw new DataFormatException("Illegal characters in " + fileName);
 
+                //add each line of puzzle from text file
                 stringPuzzles += read;
             }
             if(linesRead == 0)
