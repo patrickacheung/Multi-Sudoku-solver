@@ -20,24 +20,6 @@ class SudokuProgram {
                 solList.add(solver.get(puzzle));
             }
 
-            /**
-             * Testing purposes only
-             */
-            //test the solutions
-            for(int[][] sol: solList){
-                if(sol.length == 0)
-                    System.out.println("No solution exists.\n");
-                else{
-                    for (int i = 0; i < 9; ++i) {
-                        for (int j = 0; j < 9; ++j) {
-                            System.out.print(sol[i][j] + " ");
-                        }
-                        System.out.println();
-                    }
-                    System.out.println();
-                }
-            }
-
             //output solutions
             Output out = new Output(solList);
             out.out();
