@@ -1,7 +1,7 @@
 /**
  * Parses Sudoku puzzles from a text file and returns a list of Sudoku puzzles to be solved
  * @author Patrick Cheung
- * @version 1.3.4
+ * @version 1.3.5
  * Created by patch on 2015-12-31.
  */
 import org.apache.commons.lang3.math.NumberUtils;
@@ -57,10 +57,11 @@ class SudokuParser {
                 push(stringPuzzle); //push into array, convert to "grid" format
                 start = end; //switch to next puzzle
             }
+            return true;
         } catch(IOException | DataFormatException e){
             System.out.println("Error: " + e.getMessage());
         }
-        return true;
+        return false;
     }//end parse
 
     /**

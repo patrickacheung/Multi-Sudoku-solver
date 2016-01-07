@@ -10,7 +10,7 @@ class SudokuProgram {
     public static void main(String[] args){
         SudokuParser parser = new SudokuParser();
 
-        if(parser.parse()) {
+        if(parser.parse()){
             ArrayList<int[][]> puzzleList = parser.get();
             ArrayList<int[][]> solList = new ArrayList<>();
 
@@ -19,8 +19,28 @@ class SudokuProgram {
                 SudokuSolver solver = new SudokuSolver();
                 solList.add(solver.get(puzzle));
             }
-            //Output out = new Output(solList);
-            //out.out();
+
+            /**
+             * Testing purposes only
+             */
+            //test the solutions
+            for(int[][] sol: solList){
+                if(sol.length == 0)
+                    System.out.println("No solution exists.\n");
+                else{
+                    for (int i = 0; i < 9; ++i) {
+                        for (int j = 0; j < 9; ++j) {
+                            System.out.print(sol[i][j] + " ");
+                        }
+                        System.out.println();
+                    }
+                    System.out.println();
+                }
+            }
+
+            //output solutions
+            Output out = new Output(solList);
+            out.out();
             System.out.println("Solutions outputted into \"solutions.txt\"");
         }
     }// end main
