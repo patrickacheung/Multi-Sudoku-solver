@@ -17,7 +17,7 @@ class SudokuProgram {
             //loop through each puzzle and solve
             for(int[][] puzzle: puzzleList){
                 SudokuSolver solver = new SudokuSolver();
-                solList.add(solver.get(puzzle));
+                solList.add(solver.solve(puzzle));
             }
 
             //output solutions
