@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 class Output {
+    private final int sudokuSize = 9;
     private String fileName;
     private ArrayList<int[][]> sol;
 
@@ -30,8 +31,8 @@ class Output {
                     out.newLine();
                 }
                 else{
-                    for (int i = 0; i < 9; ++i){
-                        for (int j = 0; j < 9; ++j){
+                    for (int i = 0; i < sudokuSize; ++i){
+                        for (int j = 0; j < sudokuSize; ++j){
                             out.write(sols[i][j] + " ");
                         }
                         out.newLine();
