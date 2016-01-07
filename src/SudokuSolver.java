@@ -5,8 +5,8 @@
  * Created by patch on 2015-12-26.
  */
 class SudokuSolver {
-    private int N; //standard sudoku grid of size NxN
-    private int E; //empty cell
+    private final int N; //standard sudoku grid of size NxN
+    private final int E; //empty cell
     private int[][] sudokuGrid;
 
     //constructor

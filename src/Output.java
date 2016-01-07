@@ -10,13 +10,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 class Output {
-    private final int sudokuSize = 9;
-    private String fileName;
-    private ArrayList<int[][]> sol;
+    private final int sudokuSize;
+    private final String fileName;
+    private final ArrayList<int[][]> sol;
 
     //constructor
     public Output(ArrayList<int[][]> sol){
         fileName = "solutions.txt";
+        sudokuSize = 9;
         this.sol = sol;
     }
 
