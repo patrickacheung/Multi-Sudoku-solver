@@ -1,7 +1,7 @@
 /**
  * Parses Sudoku puzzles from a text file and returns a list of Sudoku puzzles to be solved
  * @author Patrick Cheung
- * @version 1.3.1
+ * @version 1.3.2
  * Created by patch on 2015-12-31.
  */
 import org.apache.commons.lang3.math.NumberUtils;
@@ -28,33 +28,30 @@ class SudokuParser {
      */
     public boolean parse(){
         try(BufferedReader in = new BufferedReader(new FileReader(fileName))){
-            int count = sudokuSize; // max row of column size of sudoku puzzle
-            sudokuList = new ArrayList<int[][]>();
-            String stringPuzzle = ""; //stores sudoku puzzle as one string
+            String stringPuzzles = ""; //stores all of the puzzles in text file
             String read; //input from text file
             int linesRead = 0;
+            sudokuList = new ArrayList<int[][]>();
 
-            while((read = in.readLine()) != null)
-            {
-                ++linesRead;
-                if(count != 0){
-                    stringPuzzle += read; //add each character read to string
+            while((read = in.readLine()) != null){
+                //exception for illegal characters: covers -> "" and non digits, but doesn't work for 2+ puzzles
+                if(!NumberUtils.isDigits(read) && (read.length() == 0 && linesRead % 9 != 0)) //&& works for 2+ puzzles
+                    throw new DataFormatException("Illegal characters in " + fileName);
 
-                    //if not a digit or empty file throw exception
-                    if(!NumberUtils.isDigits(stringPuzzle))
-                        throw new DataFormatException("Illegal characters in " + fileName);
-
-                    --count; //decrease count to scan through a single row of the puzzle
-                }
-                else{
-                    push(stringPuzzle);
-                    //reset and scan next puzzle
-                    stringPuzzle = "";
-                    count = sudokuSize;
-                }
+                linesRead++;
+                stringPuzzles += read;
             }
             if(linesRead == 0)
                 throw new DataFormatException(fileName + " is empty");
+
+            //break full puzzle set into individual puzzles
+            System.out.println(stringPuzzles.length());
+            for(int start = 0, end = 0, multi = 1; end < stringPuzzles.length(); ++multi){
+                end = sudokuSize * sudokuSize * multi;
+                String stringPuzzle = stringPuzzles.substring(start, end); //one puzzle in a single string
+                push(stringPuzzle); //push into array, convert to "grid" format
+                start = end; //switch to next puzzle
+            }
         } catch(IOException | DataFormatException e){
             System.out.println("Error: " + e.getMessage());
         }
@@ -79,13 +76,6 @@ class SudokuParser {
             for(int i = 0; i < sudokuSize; ++i){
                 puzzle[row][i] = Integer.parseInt(Character.toString(substringRow.charAt(i)));
             }
-        }
-        //print to check
-        for(int i = 0; i < 9; ++i) {
-            for (int j = 0; j < 9; ++j) {
-                System.out.print(puzzle[i][j]);
-            }
-            System.out.println();
         }
         sudokuList.add(puzzle);
     }//end push
