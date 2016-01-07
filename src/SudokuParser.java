@@ -50,7 +50,6 @@ class SudokuParser {
                 throw new DataFormatException(fileName + " is empty");
 
             //break full puzzle set into individual puzzles
-            System.out.println(stringPuzzles.length());
             for(int start = 0, end = 0, multi = 1; end < stringPuzzles.length(); ++multi){
                 end = sudokuSize * sudokuSize * multi;
                 String stringPuzzle = stringPuzzles.substring(start, end); //one puzzle in a single string
