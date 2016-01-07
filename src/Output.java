@@ -18,29 +18,27 @@ class Output {
         fileName = "solutions.txt";
         this.sol = sol;
     }
-/*
-    // TODO:
-            //test the solutions
-            for(int[][] sol: solList){
-        if(sol.length == 0)
-            System.out.println("No solution exists.\n");
-        else{
-            for (int i = 0; i < 9; ++i) {
-                for (int j = 0; j < 9; ++j) {
-                    System.out.print(sol[i][j] + " ");
-                }
-                System.out.println();
-            }
-            System.out.println();
-        }
-    }
-    */
+
     /**
-     *
+     * Outputs solutions into text file
      */
     public void out(){
         try(BufferedWriter out = new BufferedWriter(new FileWriter(fileName))){
-
+            for(int[][] sols: sol){
+                if(sols.length == 0){
+                    out.write("No solution exists.");
+                    out.newLine();
+                }
+                else{
+                    for (int i = 0; i < 9; ++i){
+                        for (int j = 0; j < 9; ++j){
+                            out.write(sols[i][j] + " ");
+                        }
+                        out.newLine();
+                    }
+                    out.newLine();
+                }
+            }
         } catch(IOException e){
             e.getMessage();
         }
