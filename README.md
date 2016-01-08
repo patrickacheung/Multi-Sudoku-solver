@@ -1,29 +1,32 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Readme for Multi-Sudoku-solver
 
-### What is this repository for? ###
+### Instructions ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Input file is "puzzles.txt"
+* Output file is "solutions.txt"
 
-### How do I get set up? ###
+### Format ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* 9 x 9 grid
+* No spaces between digits
+* Use "0" for blanks
+* Use a blank line between puzzles
 
-### Contribution guidelines ###
+### Example ###
 
-* Writing tests
-* Code review
-* Other guidelines
+  800000000
+  003600000
+  070090200
+  050007000
+  000045700
+  000100030
+  001000068
+  008500010
+  090000400
 
-### Who do I talk to? ###
+### Notes ###
 
-* Repo owner or admin
-* Other community or team contact
+* Solutions will be in the same order as input
+* Uses Apache Commons Lang library
