@@ -39,4 +39,4 @@ Readme for Multi-Sudoku-solver
 ### Notes ###
 
 * Solutions will be in the same order as input
-* Uses Apache Commons Lang library
+* Requires Apache Commons Lang library
