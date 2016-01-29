@@ -40,3 +40,7 @@ Readme for Multi-Sudoku-solver
 
 * Solutions will be in the same order as input
 * Requires Apache Commons Lang library
+
+### License ###
+
+* Apache License 2.0
